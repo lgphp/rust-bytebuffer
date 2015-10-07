@@ -1,0 +1,10 @@
+[package]
+name = "bytebuffer"
+version = "0.1.0"
+authors = ["Takeo Miyamoto <miyamofigo@gmail.com>"]
+
+[dependencies]
+byteorder = "0.3"
+
+[dependencies.interpolate_idents]
+git = "https://github.com/SkylerLipthay/interpolate_idents.git"

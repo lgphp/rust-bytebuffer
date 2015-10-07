@@ -1,0 +1,18 @@
+[root]
+name = "bytebuffer"
+version = "0.1.0"
+dependencies = [
+ "byteorder 0.3.13 (registry+https://github.com/rust-lang/crates.io-index)",
+ "interpolate_idents 0.0.4 (git+https://github.com/SkylerLipthay/interpolate_idents.git)",
+]
+
+[[package]]
+name = "byteorder"
+version = "0.3.13"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "interpolate_idents"
+version = "0.0.4"
+source = "git+https://github.com/SkylerLipthay/interpolate_idents.git#e3c5f924c3b8f1fbb6e2a9f901acd9f70009a846"
+
