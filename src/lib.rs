@@ -212,6 +212,16 @@ impl ByteBuffer {
     for _ in 0..len { self.next_index(); }
     Ok(unsafe { std::slice::from_raw_parts(raw_result, len) })
   }
+  
+  pub fn vector(&self) -> Option<Vec<u8>> {
+    unsafe {
+      let content = self.buf.ptr();
+      if content.is_null() { return None; }
+
+      let result = std::slice::from_raw_parts(content, self.cap());   
+      Some(result.clone().to_vec())
+    }
+  }  
 }
 
 macro_rules! define_trait {
@@ -427,6 +437,11 @@ fn test_bytebuffer() {
     assert!( *i == 1 );
   }
   assert!( bb.get_bytes(10).is_err() ); 
+  bb.clear();
+  let v = bb.vector().unwrap();
+  for i in 0..bb.cap() {
+    assert!( *v.get(i).unwrap() == bb.get() );
+  }
 }
 
 #[test]
